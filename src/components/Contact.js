@@ -27,15 +27,19 @@ export const Contact = () => {
     e.preventDefault();
     setButtonText("Sending...");
     console.log(formDetails)
+    let a=0;
     if(!formDetails.firstName || !formDetails.lastName || !formDetails.message || !formDetails.phone || !formDetails.email){
       alert("Data should not be empty")
-    }else{
+      setButtonText("Send");
+      a=1;
+    }
+    if(a===0){
+      
       setTimeout(()=>{
+        setFormDetails(formInitialDetails);
         setButtonText("Send");
       }, 1000);
     }
-
-    setButtonText("Send");
     
     // let response = await fetch("http://localhost:5000/contact", {
     //   method: "POST",
